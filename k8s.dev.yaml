@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - args:
-        image: docker.moppy.tokyo/ip-deroris-net
+        image: asia.gcr.io/tactile-reason-121605/ip-deroris-net
         imagePullPolicy: Always
         name: ip-deroris-net
         ports:

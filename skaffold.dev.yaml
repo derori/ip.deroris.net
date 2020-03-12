@@ -2,7 +2,7 @@ apiVersion: skaffold/v1
 kind: Config
 build:
   artifacts:
-  - image: docker.moppy.tokyo/ip-deroris-net
+  - image: asia.gcr.io/tactile-reason-121605/ip-deroris-net
     docker:
       dockerfile: ./Dockerfile
   local:
