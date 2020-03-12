@@ -1,0 +1,40 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: ip-deroris-net
+  namespace: dev
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: ip-deroris-net
+  template:
+    metadata:
+      labels:
+        app: ip-deroris-net
+    spec:
+      containers:
+      - args:
+        image: docker.moppy.tokyo/ip-deroris-net
+        imagePullPolicy: Always
+        name: ip-deroris-net
+        ports:
+        - containerPort: 3000
+          protocol: TCP
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: ip-deroris-net
+  namespace: dev
+spec:
+  # externalTrafficPolicy: Local
+#  type: LoadBalancer
+  #type: NodePort
+  ports:
+  - name: "http-port"
+    protocol: TCP
+    port: 80
+    targetPort: 3000
+  selector:
+    app: ip-deroris-net
