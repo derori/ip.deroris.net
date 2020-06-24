@@ -2,9 +2,9 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: ip-deroris-net
-  namespace: dev
+  namespace: ip-deroris-net-dev
 spec:
-  replicas: 5
+  replicas: 1
   selector:
     matchLabels:
       app: ip-deroris-net
@@ -15,8 +15,8 @@ spec:
     spec:
       containers:
       - args:
-        image: asia.gcr.io/tactile-reason-121605/ip-deroris-net
-        imagePullPolicy: Always
+        image: dev/ip-deroris-net
+        imagePullPolicy: IfNotPresent
         name: ip-deroris-net
         ports:
         - containerPort: 3000
@@ -26,7 +26,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: ip-deroris-net
-  namespace: dev
+  namespace: ip-deroris-net-dev
 spec:
   # externalTrafficPolicy: Local
 #  type: LoadBalancer

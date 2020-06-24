@@ -1,4 +1,4 @@
-FROM node:13
+FROM node:14
 
 # アプリケーションディレクトリを作成する
 WORKDIR /usr/src/app
@@ -15,5 +15,5 @@ RUN npm install
 # アプリケーションのソースをバンドルする
 COPY . .
 
-EXPOSE 8080
+EXPOSE 3000
 CMD [ "node", "main.js" ]
