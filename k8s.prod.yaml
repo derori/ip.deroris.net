@@ -42,19 +42,22 @@ spec:
     app: ip-deroris-net
 ---
 # ingress
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: lb
+  namespace: ip-deroris-net-prod
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   rules:
     - host: ip.deroris.net
       http:
         paths:
           - path: /
+            pathType: Prefix
             backend:
-              serviceName: ip-deroris-net
-              servicePort: 80
+              service:
+                name: ip-deroris-net
+                port:
+                  number: 80
