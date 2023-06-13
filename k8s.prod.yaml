@@ -4,7 +4,7 @@ metadata:
   name: ip-deroris-net
   namespace: ip-deroris-net-prod
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: ip-deroris-net
@@ -31,7 +31,7 @@ metadata:
   namespace: ip-deroris-net-prod
 spec:
   # externalTrafficPolicy: Local
-#  type: LoadBalancer
+  #type: LoadBalancer
   #type: NodePort
   ports:
   - name: "http-port"
