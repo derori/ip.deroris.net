@@ -1,4 +1,4 @@
-apiVersion: skaffold/v1
+apiVersion: skaffold/v4beta13
 kind: Config
 build:
   artifacts:
@@ -13,7 +13,6 @@ build:
   local:
     push: false
     useBuildkit: true
-deploy:
-  kubectl:
-    manifests:
+manifests:
+  rawYaml:
     - ./k8s.dev.yaml

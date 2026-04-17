@@ -1,0 +1,16 @@
+apiVersion: skaffold/v4beta13
+kind: Config
+metadata:
+  name: ip.deroris.net
+build:
+  artifacts:
+    - image: asia.gcr.io/tactile-reason-121605/ip-deroris-net
+      docker:
+        dockerfile: Dockerfile
+    - image: dev/ip-deroris-net
+      buildpacks:
+        builder: gcr.io/buildpacks/builder:v1
+manifests:
+  rawYaml:
+    - k8s.dev.yaml
+    - k8s.prod.yaml
