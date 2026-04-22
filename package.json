@@ -10,6 +10,6 @@
   "author": "Derorisan",
   "license": "",
   "dependencies": {
-    "express": "^5.2.1"
+    "express": "^4.22.0"
   }
 }
